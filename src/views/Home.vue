@@ -1,18 +1,46 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img src="@/assets/bg-list.png" id="bg">
+    <HeaderPage :name="userName"/>
+    <BooksList />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HeaderPage from '@/components/HeaderPage.vue';
+import BooksList from '@/components/BooksList.vue';
 
 export default {
   name: 'Home',
+
   components: {
-    HelloWorld
+    HeaderPage,
+    BooksList
+  },
+
+  data() {
+    return {
+      userName: 'Klayton'
+    }
   }
 }
 </script>
+
+<style scoped>
+.home {
+  width: 100%;
+  max-height: 100vh;
+  overflow: hidden !important;
+}
+
+img {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+</style>
